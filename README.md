@@ -18,18 +18,18 @@ Sigue estos pasos para configurar el entorno de desarrollo:
 
 1. Clona el repositorio:
 
-git clone https://github.com/tu_usuario/practicas_sopra.git
-cd practicas_sopra
+`git clone https://github.com/tu_usuario/practicas_sopra.git`
+`cd practicas_sopra`
 
 2. Crea y activa un entorno virtual (opcional pero recomendado):
 
-python -m venv venv
-source venv/bin/activate  # En Windows usa `venv\Scripts\activate`
+`python -m venv venv`
+`source venv/bin/activate`  # En Windows usa `venv\Scripts\activate`
 
 
 3. Instala las dependencias:
 
-pip install -r requirements.txt
+`pip install -r requirements.txt`
 
 ### Archivo requirements.txt
 
