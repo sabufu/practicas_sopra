@@ -32,10 +32,10 @@ Sigue estos pasos para configurar el entorno de desarrollo:
 
 ### Archivo requirements.txt
 
-streamlit
-openai
-requests
-python-dotenv
+- streamlit
+- openai
+- requests
+- python-dotenv
 
 ## Uso
 
