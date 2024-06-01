@@ -30,12 +30,6 @@ Sigue estos pasos para configurar el entorno de desarrollo:
 
 `pip install -r requirements.txt`
 
-### Archivo requirements.txt
-
-- streamlit
-- openai
-- requests
-- python-dotenv
 
 ## Uso
 
@@ -44,7 +38,7 @@ Para utilizar este sistema, sigue estos pasos:
 1. Clona este repositorio en tu máquina local.
 2. Instala las dependencias utilizando `pip install -r requirements.txt`.
 3. Obtén tu API Key de OpenAI y configúrala en el archivo `.env`.
-4. Ejecuta el script principal para comenzar a generar tests unitarios.
+4. Ejecuta el script principal para comenzar a generar tests unitarios utilizando el siguiente comando `streamlit run source/main.py`
 
 
 
