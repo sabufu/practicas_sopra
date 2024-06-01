@@ -18,8 +18,7 @@ Sigue estos pasos para configurar el entorno de desarrollo:
 
 1. Clona el repositorio:
 
-`git clone https://github.com/tu_usuario/practicas_sopra.git`
-`cd practicas_sopra`
+`git clone https://github.com/sabufu/practicas_sopra.git`
 
 2. Crea y activa un entorno virtual (opcional pero recomendado):
 
