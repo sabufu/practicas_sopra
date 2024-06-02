@@ -9,13 +9,54 @@ def get_tests(code):
   api_key = os.environ.get('OPENAI_API_KEY')
 
   openai.api_key = api_key
+  client = openai.OpenAI()
 
 
-  completion = openai.ChatCompletion.create(
+  completion = client.chat.completions.create(
     model="gpt-3.5-turbo",
     messages=[
       {"role": "system", "content": "Solamente puedes devolver código en python"},
       {"role": "user", "content": "Genera la clase de tests unitarios para las funciones definidas en el siguiente código: " + code}
+    ]
+  )
+
+  print(completion.choices[0].message.content)
+  codigo = completion.choices[0].message.content
+  return codigo
+
+def get_contenido_error(code, error):
+  # Access the environment variables from the .env file
+  api_key = os.environ.get('OPENAI_API_KEY')
+
+  openai.api_key = api_key
+  client = openai.OpenAI()
+
+
+  completion = client.chat.completions.create(
+    model="gpt-3.5-turbo",
+    messages=[
+      {"role": "system", "content": "Solamente puedes devolver código en python"},
+      {"role": "user", "content": f"Ejecutando el siguiente código: ```{code}```. He obtenido el siguiente error: {error}. Devuelve solo el código corregido sin explicaciones."}
+    ]
+  )
+
+  print(completion.choices[0].message.content)
+  codigo = completion.choices[0].message.content
+  return codigo
+
+def get_tests_error(code, error):
+  # Access the environment variables from the .env file
+  api_key = os.environ.get('OPENAI_API_KEY')
+
+  openai.api_key = api_key
+  client = openai.OpenAI()
+
+
+  completion = client.chat.completions.create(
+    model="gpt-3.5-turbo",
+    messages=[
+      {"role": "system", "content": "Solamente puedes devolver código en python"},
+      {"role": "user", "content": f"Ejecutando el siguiente código: ```{code}```. He obtenido el siguiente error: {error}. Devuelve solo el código corregido sin explicaciones."}
     ]
   )
 
