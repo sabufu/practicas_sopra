@@ -8,7 +8,7 @@ import tempfile
 import subprocess
 import re
 import sys
-
+from utils import descargar_archivo_contenido
 import unittest
 import pytest
 import pandas as pd
@@ -225,8 +225,11 @@ def main():
                         st.code(tests_openai, language="python")
                         contenido_y_tests = ejecutar_contenido(contenido, tests_openai)
                         ejecutar_tests(contenido_y_tests, test_framework)
-
-                         #Esto todavía falla
+                        
+                        # Botón de descarga usando la función importada
+                        descargar_archivo_contenido('test_unitario_generado.py', test_unitario)
+                    
+                        #Esto todavía falla
                         #ejecucion_tests =  exec(tests_openai) #Esto todavía falla
                         #st.warning(ejecucion_tests)
                     else:
@@ -234,11 +237,7 @@ def main():
                 else:
                     st.warning("Por favor, ingresa todos los detalles del repositorio y la ruta del archivo.")
                                                # Botón de descarg
-                st.download_button(
-                    label="Descargar test generado como archivo .py",
-                    data=tests_openai,
-                    file_name='test_unitario_generado.py',
-                    mime='text/plain'
+                
                 )
     with tab2:
         st.header("Generar tests unitarios desde un archivo Python")
@@ -262,13 +261,11 @@ def main():
                     ejecutar_tests(contenido_y_tests, test_framework)
                     
                 
+                     
+                    # Botón de descarga usando la función importada
+                    descargar_archivo_contenido('test_unitario_generado.py', test_unitario)
+
                     
-                    # Botón de descarga
-                    st.download_button(
-                        label="Descargar test generado como archivo .py",
-                        data=test_unitario,
-                        file_name='test_unitario_generado.py',
-                        mime='text/plain'
                     )
 
 if __name__ == "__main__":
