@@ -46,6 +46,15 @@ st.write('Tutor: Pablo Guijarro')
 test_framework = st.radio("Selecciona el framework para generar los tests:", ("unittest", "pytest"))
 
 def eliminar_caracteres_innecesarios(codigo):
+    """
+    Elimina caracteres innecesarios del código.
+
+    Args:
+        codigo (str): El código del cual se eliminarán los caracteres innecesarios.
+
+    Returns:
+        str: El código sin los caracteres innecesarios.
+    """
     codigo = codigo.replace("```", "")
     codigo = codigo.replace("python", "")
     lineas = codigo.split('\n')
@@ -56,6 +65,15 @@ def eliminar_caracteres_innecesarios(codigo):
 
 
 def obtener_contenido_archivo_desde_github(url):
+    """
+    Obtiene el contenido de un archivo desde un repositorio de GitHub.
+
+    Args:
+        url (str): La URL del archivo en el repositorio de GitHub.
+
+    Returns:
+        str: El contenido del archivo.
+    """
     raw_url = url.replace("github.com", "raw.githubusercontent.com")
     # Reemplaza '/blob/' por '/' en la URL para obtener el enlace directo al archivo
     raw_url = raw_url.replace("/blob/", "/")
@@ -71,6 +89,15 @@ def ejecutar_tests(tests_openai, test_framework):
         f.write(tests_openai)
     
     if test_framework == 'pytest':
+        """
+        Ejecuta los tests generados y captura los resultados.
+    
+        Args:
+            test_code (str): El código de los tests a ejecutar.
+    
+        Returns:
+            str: Los resultados de la ejecución de los tests.
+        """
         # Ejecutar pytest
         result = pytest.main(["test_temp.py"])
         if result == 0:
@@ -170,6 +197,13 @@ def ejecutar_contenido(contenido, tests_openai):
     return contenido_y_tests
 
 def main():
+    """
+    Función principal que controla la lógica de la aplicación de Streamlit.
+
+    Crea pestañas para ingresar una URL de repositorio o cargar un archivo Python,
+    y genera tests unitarios basados en el contenido proporcionado.
+    """
+    
     # Crear pestañas
     tab1, tab2 = st.tabs(["Ingresar URL del repositorio", "Subir archivo Python"])
 
