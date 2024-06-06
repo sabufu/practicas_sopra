@@ -227,7 +227,7 @@ def main():
                         ejecutar_tests(contenido_y_tests, test_framework)
                         
                         # Botón de descarga usando la función importada
-                        descargar_archivo_contenido('test_unitario_generado.py', test_unitario)
+                        descargar_archivo_contenido('test_unitario_generado.py', tests_openai)
                     
                         #Esto todavía falla
                         #ejecucion_tests =  exec(tests_openai) #Esto todavía falla
@@ -258,9 +258,7 @@ def main():
                     st.write('Test Unitario generado:')
                     st.code(test_unitario, language="python")
                     contenido_y_tests = ejecutar_contenido(code, test_unitario)
-                    ejecutar_tests(contenido_y_tests, test_framework)
-                    
-                
+                    ejecutar_tests(contenido_y_tests, test_framework)                
                      
                     # Botón de descarga usando la función importada
                     descargar_archivo_contenido('test_unitario_generado.py', test_unitario)
